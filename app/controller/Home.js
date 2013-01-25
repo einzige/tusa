@@ -4,5 +4,9 @@ Ext.define('Tusa.controller.Home', {
     config: {
         routes: { 'home': 'index' },
         refs: { tab: '#home' },
+    },
+
+    index: function() {
+        console.log('at home');
     }
 });

@@ -82,13 +82,9 @@ Ext.define('Tusa.view.Main', {
 
                 listeners: {
                     activate: function() {
-                        //if (this.visited) {
-                            if (window.location.hash !== "#" + this.id) {
-                                Tusa.app.redirectTo(this.id);
-                            }
-                      //  } else {
-                            this.visited = true;
-                      //  }
+                        if (window.location.hash !== "#" + this.id) {
+                            Tusa.app.redirectTo(this.id);
+                        }
                     }
                 },
 
@@ -100,9 +96,6 @@ Ext.define('Tusa.view.Main', {
                         docked: 'top',
                         xtype: 'titlebar',
                         title: 'Поиск объявлений'
-                    },
-                    {
-                        xtype: 'adslist',
                     }
                 ]
             },
