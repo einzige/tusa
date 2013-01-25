@@ -1,5 +1,5 @@
 Ext.define('Tusa.controller.Ads', {
-    extend: 'Ext.app.Controller',
+    extend: 'Tusa.controller.Tab',
 
     config: {
         routes: {
@@ -7,13 +7,11 @@ Ext.define('Tusa.controller.Ads', {
         },
 
         refs: {
-            tabs: '#Tabs',
-            adsTab: '#AdsTab'
+            tab: '#ads'
         },
     },
 
     index: function() {
-        this.getTabs().setActiveItem(this.getAdsTab());
-        console.log('Ads loaded');
+        this.callParent(arguments);
     }
 });

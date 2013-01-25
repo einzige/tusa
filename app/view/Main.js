@@ -1,5 +1,3 @@
-var onHome = false;
-
 Ext.define('Tusa.view.Main', {
     extend: 'Ext.tab.Panel',
 
@@ -12,15 +10,22 @@ Ext.define('Tusa.view.Main', {
         'Ext.Img',
         'Tusa.view.AdsList'
     ],
+
+    initialize: function() {
+        this.callParent(arguments);
+        if (window.location.hash) {
+            this.setActiveItem(window.location.hash);
+        }
+    },
+
     config: {
         tabBarPosition: 'bottom',
-        firstVisit: true,
 
         items: [
             {
                 title: 'Главная',
                 iconCls: 'home',
-                id: 'HomeTab',
+                id: 'home',
 
                 styleHtmlContent: true,
                 scrollable: true,
@@ -28,8 +33,12 @@ Ext.define('Tusa.view.Main', {
 
                 listeners: {
                     activate: function() {
-                        if (onHome) {
-                          Tusa.app.redirectTo('home');
+                        if (this.visited) {
+                            if (window.location.hash !== "#" + this.id) {
+                                Tusa.app.redirectTo(this.id);
+                            }
+                        } else {
+                            this.visited = true;
                         }
                     }
                 },
@@ -69,12 +78,17 @@ Ext.define('Tusa.view.Main', {
                 title: 'Объявы',
                 iconCls: 'search',
                 layout: 'fit',
-                id: 'AdsTab',
+                id: 'ads',
 
                 listeners: {
                     activate: function() {
-                        Tusa.app.redirectTo('ads');
-                        onHome = true;
+                        //if (this.visited) {
+                            if (window.location.hash !== "#" + this.id) {
+                                Tusa.app.redirectTo(this.id);
+                            }
+                      //  } else {
+                            this.visited = true;
+                      //  }
                     }
                 },
 
