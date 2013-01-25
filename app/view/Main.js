@@ -7,8 +7,7 @@ Ext.define('Tusa.view.Main', {
     requires: [
         'Ext.TitleBar',
         'Ext.Video',
-        'Ext.Img',
-        'Tusa.view.AdsList'
+        'Ext.Img'
     ],
 
     initialize: function() {
@@ -50,27 +49,8 @@ Ext.define('Tusa.view.Main', {
                         height: 100
                     },
                     {
-                      xtype: 'spacer'
-                    },
-                    {
-                        xtype: 'panel',
-                        layout: 'hbox',
-
-                        items: [
-                            {
-                                xtype: 'image',
-                                src: 'http://gazetashans.ru/covers/pictures/674/main_Shans_03_01.jpg?1358486265',
-                                height: 218,
-                                width: 175,
-                                flex: 1
-                            },
-                            {
-                                xtype: 'panel',
-                                styleHtmlContent: true,
-                                html: '<h4 style="text-align: center">«Шанс» — полезный рекламно-информационный еженедельник.</h4><p style="text-align: justify">В «Шансе» как в справочнике, можно быстро найти нужную информацию о товарах и услугах для вас и вашего дома. Изучить полезные советы для потребителей, познакомиться с мнениями специалистов в различных областях. А также посмотреть программу телепередач и почитать новости о жизни "звезд".</p>',
-                                flex: 3
-                            }
-                        ]
+                      xtype: 'spacer',
+                      height: 20
                     }
                 ]
             },
@@ -89,9 +69,6 @@ Ext.define('Tusa.view.Main', {
                 },
 
                 items: [
-                    {
-                      xtype: 'spacer'
-                    },
                     {
                         docked: 'top',
                         xtype: 'titlebar',
@@ -116,24 +93,6 @@ Ext.define('Tusa.view.Main', {
                     }
                 ]
             },
-/*            {
-                title: 'Конкурсы',
-                iconCls: 'star',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Конкурсы'
-                    },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
-                    }
-                ]
-            },
-*/
             {
                 title: 'Размещение',
                 iconCls: 'add',
@@ -154,17 +113,22 @@ Ext.define('Tusa.view.Main', {
             {
                 title: 'О нас',
                 iconCls: 'info',
+                scrollable: true,
+                id: 'about',
+
+                listeners: {
+                    activate: function() {
+                        if (window.location.hash !== "#" + this.id) {
+                            Tusa.app.redirectTo(this.id);
+                        }
+                    }
+                },
 
                 items: [
                     {
                         docked: 'top',
                         xtype: 'titlebar',
                         title: 'Об издании'
-                    },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
                     }
                 ]
             }

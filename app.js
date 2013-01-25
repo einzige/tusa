@@ -15,7 +15,7 @@ Ext.application({
     models: ['Ad'],
     views: ['Main'],
     stores: ['Ads'],
-    controllers: ['Ads', 'Home', 'Tab'],
+    controllers: ['About', 'Ads', 'Home', 'Tab'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

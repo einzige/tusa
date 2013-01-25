@@ -15,10 +15,16 @@ Ext.define('Tusa.view.AdsList', {
                       xclass: 'Ext.plugin.PullRefresh',
                       pullRefreshText: 'Обновить список объявлений!'
                   }],
-        itemTpl: [
-                  "<div class='Ad'>",
+        itemTpl: new Ext.XTemplate(
+                  '<tpl if="this.special(ordering)">',
+                  "<div class='Ad' style='background: yellow'>",
+                  '<tpl else>',
+                  '<div class="Ad">',
+                  '</tpl>',
                     "<div>{text}<div>", "<b>{tel}</b>", "&nbsp;<small>{date}</small>",
-                  "</div>"
-                 ].join("")
+                  "</div>",
+                  {
+                      special: function(ordering) { return ordering == '1'; }
+                  })
     }
 });
