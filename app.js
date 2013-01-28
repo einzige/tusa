@@ -12,10 +12,10 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    models: ['Ad'],
+    models: ['Ad', 'Category'],
     views: ['Main'],
-    stores: ['Ads'],
-    controllers: ['About', 'Ads', 'Home', 'Tab'],
+    stores: ['Ads', 'Categories'],
+    controllers: ['About', 'Ads', 'Categories', 'Home', 'Tab'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
