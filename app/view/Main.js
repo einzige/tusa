@@ -89,14 +89,6 @@ Ext.define('Tusa.view.Main', {
                         }
                     }
                 },
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Категории'
-                    }
-                ]
             },
             {
                 title: 'Размещение',
