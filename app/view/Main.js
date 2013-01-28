@@ -80,6 +80,7 @@ Ext.define('Tusa.view.Main', {
                 title: 'Статьи',
                 iconCls: 'compose',
                 id: 'categories',
+                layout: 'fit',
 
                 listeners: {
                     activate: function() {
