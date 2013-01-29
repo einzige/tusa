@@ -21,9 +21,8 @@ Ext.define('Tusa.controller.Categories', {
         } else {
             store.on('load', function() {
                 var currentNode = store.findRecord('slug', categoryId);
-                console.log(currentNode.data.leaf);
+
                 if (currentNode.data.leaf) {
-                    console.log(['categories', categoryId, 'ads'].join('/'));
                     Tusa.app.redirectTo(['categories', categoryId, 'ads'].join('/'));
                 } else {
                     list.goToNode(currentNode);

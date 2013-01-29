@@ -6,7 +6,7 @@ Ext.define('Tusa.controller.Ads', {
         contentClass: 'Tusa.view.AdsList',
 
         routes: {
-            'ads': 'index'
+            'categories/:category_id/ads': 'index'
         },
 
         refs: {
