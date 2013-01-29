@@ -13,7 +13,7 @@ Ext.define('Tusa.view.Main', {
     initialize: function() {
         this.callParent(arguments);
         if (window.location.hash) {
-            this.setActiveItem(window.location.hash);
+            this.setActiveItem(window.location.hash.split('/')[0]);
         }
     },
 
@@ -84,7 +84,7 @@ Ext.define('Tusa.view.Main', {
 
                 listeners: {
                     activate: function() {
-                        if (window.location.hash !== "#" + this.id) {
+                        if (window.location.hash && window.location.hash.split('/')[0] !== "#" + this.id) {
                             Tusa.app.redirectTo(this.id);
                         }
                     }
@@ -100,11 +100,6 @@ Ext.define('Tusa.view.Main', {
                         xtype: 'titlebar',
                         title: 'Разместить объявление'
                     },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
-                    }
                 ]
             },
             {

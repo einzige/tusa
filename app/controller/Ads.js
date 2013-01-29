@@ -10,7 +10,7 @@ Ext.define('Tusa.controller.Ads', {
         },
 
         refs: {
-            tab: '#ads',
-        },
+            tab: '#ads'
+        }
     }
 });
