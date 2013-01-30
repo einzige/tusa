@@ -57,12 +57,12 @@ Ext.define('Tusa.view.Main', {
             {
                 title: 'Объявы',
                 iconCls: 'search',
+                id: 'categories',
                 layout: 'fit',
-                id: 'ads',
 
                 listeners: {
                     activate: function() {
-                        if (window.location.hash !== "#" + this.id) {
+                        if (window.location.hash && window.location.hash.split('/')[0] !== "#" + this.id) {
                             Tusa.app.redirectTo(this.id);
                         }
                     }
@@ -79,8 +79,9 @@ Ext.define('Tusa.view.Main', {
             {
                 title: 'Статьи',
                 iconCls: 'compose',
-                id: 'categories',
+                id: 'categoriesx',
                 layout: 'fit',
+                xtype: 'panel',
 
                 listeners: {
                     activate: function() {
@@ -89,18 +90,6 @@ Ext.define('Tusa.view.Main', {
                         }
                     }
                 },
-            },
-            {
-                title: 'Размещение',
-                iconCls: 'add',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Разместить объявление'
-                    },
-                ]
             },
             {
                 title: 'О нас',

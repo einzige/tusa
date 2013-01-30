@@ -15,18 +15,25 @@ Ext.define('Tusa.controller.Categories', {
         var list = this.getList();
         var store = list.getStore();
 
-        if (store.isLoaded()) {
+        var navigateToNode = function() {
             var currentNode = store.findRecord('slug', categoryId);
-            list.goToNode(currentNode);
-        } else {
-            store.on('load', function() {
-                var currentNode = store.findRecord('slug', categoryId);
 
+            if (currentNode) {
                 if (currentNode.data.leaf) {
                     Tusa.app.redirectTo(['categories', categoryId, 'ads'].join('/'));
                 } else {
                     list.goToNode(currentNode);
                 }
+            } else {
+                Tusa.app.redirectTo('categories');
+            }
+        }
+
+        if (store.isLoaded()) {
+            navigateToNode();
+        } else {
+            store.on('load', function() {
+                navigateToNode();
             });
         }
     }
