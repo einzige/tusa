@@ -5,6 +5,6 @@ Ext.define('Tusa.controller.About', {
     config: {
         contentClass: 'Tusa.view.About',
         routes: { 'about': 'index' },
-        refs: { tab: '#about' },
-    },
+        refs: { tab: '#about' }
+    }
 });

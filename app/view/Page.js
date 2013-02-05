@@ -3,7 +3,7 @@ Ext.define("Tusa.view.Page", {
     xtype: 'pagepanel',
 
     config: {
-        baseUrl: 'http://192.168.1.111:3000/pages/',
+        baseUrl: Tusa.app.sourceHost + '/pages/',
         pageId: '',
         styleHtmlContent: true
     },

@@ -6,6 +6,7 @@ Ext.define('Tusa.view.AdsList', {
 
     config: {
         store: 'Ads',
+        id: 'AdsList',
 
         plugins: [{
                       xclass: 'Ext.plugin.ListPaging',
@@ -17,9 +18,9 @@ Ext.define('Tusa.view.AdsList', {
                   }],
         itemTpl: new Ext.XTemplate(
                   '<tpl if="this.special(ordering)">',
-                  "<div class='Ad' style='background: yellow'>",
+                  "<div class='Ad ad special'>",
                   '<tpl else>',
-                  '<div class="Ad">',
+                  '<div class="Ad ad">',
                   '</tpl>',
                     "<div>{text}<div>", "<b>{tel}</b>", "&nbsp;<small>{date}</small>",
                   "</div>",

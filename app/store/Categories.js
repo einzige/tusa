@@ -9,7 +9,7 @@ Ext.define('Tusa.store.Categories', {
 
         proxy: {
             type: 'jsonp',
-            url: 'http://192.168.1.111:3000/categories',
+            url: Tusa.app.sourceHost + '/categories',
 
             reader: {
                 type: 'json',

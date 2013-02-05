@@ -1,40 +1,40 @@
 Ext.define('Tusa.controller.Categories', {
-    extend: 'Tusa.controller.Tab',
+    extend:   'Tusa.controller.List',
     requires: ['Tusa.view.Categories'],
 
     config: {
-        contentClass: 'Tusa.view.Categories',
-
-        routes: { 'categories': 'index',
-                  'categories/:id': 'show' },
-
-        refs: { tab: '#categories', list: '#CategoriesList' }
+        routes: {
+            'categories':     'index',
+            'categories/:id': 'show'
+        }
     },
 
-    show: function(categoryId) {
+    index: function () {
+        this.getList().goToRootNode();
+    },
+
+    show: function (categoryId) {
+        this.getSeeAllButton().show();
+
         var list = this.getList();
         var store = list.getStore();
 
-        var navigateToNode = function() {
+        list.setActiveItem(list.getLastActiveList());
+
+        var navigate = function () {
             var currentNode = store.findRecord('slug', categoryId);
 
             if (currentNode) {
                 if (currentNode.data.leaf) {
                     Tusa.app.redirectTo(['categories', categoryId, 'ads'].join('/'));
                 } else {
-                    list.goToNode(currentNode);
+                    list.goToCategoryNode(currentNode);
                 }
             } else {
                 Tusa.app.redirectTo('categories');
             }
-        }
+        };
 
-        if (store.isLoaded()) {
-            navigateToNode();
-        } else {
-            store.on('load', function() {
-                navigateToNode();
-            });
-        }
+        store.isLoaded() ? navigate() : store.on('load', navigate);
     }
 });

@@ -11,9 +11,68 @@
 @include sencha-toolbar-forms;
 @include sencha-indexbar;
 @include sencha-list;
+@include sencha-list-paging;
+@include sencha-list-pullrefresh;
 @include sencha-layout;
 @include sencha-carousel;
 @include sencha-form;
 @include sencha-msgbox;
 
 // Your custom code goes here...
+
+/* Text items */
+.small-text .x-innerhtml {
+  -webkit-text-size-adjust:none;
+  font-size: 10px !important;
+}
+
+/* Button text */
+.small-text .x-button-label {
+  -webkit-text-size-adjust:none;
+  font-size: 10px !important;
+}
+
+#SeeAllButton {
+  text-align: center;
+  font-weight: normal;
+  cursor: pointer;
+  border: none !important;
+  background: #d3d3d3;
+  border-radius: 0;
+}
+
+#SeeAllButton .x-button-label {
+  font-weight: normal !important;
+  text-decoration: underline;
+  font-size: 10px !important;
+}
+
+.ad {
+  font-size: 12px !important;
+}
+
+.ad b {
+  font-size: 14px !important;
+}
+
+.ad.special {
+  font-size: 14px !important;
+  padding: 10px;
+  background: yellow; /* Old browsers */
+  background: -moz-linear-gradient(top, #fff0ba 0%, #efefef 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff0ba), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #fff0ba 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fff0ba 0%,#efefef 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fff0ba 0%,#efefef 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #fff0ba 0%,#efefef 100%); /* W3C */
+}
+
+.x-item-selected .ad.special {
+  color: black;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.ad small {
+  color: gray;
+}

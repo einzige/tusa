@@ -66,30 +66,7 @@ Ext.define('Tusa.view.Main', {
                             Tusa.app.redirectTo(this.id);
                         }
                     }
-                },
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Поиск объявлений'
-                    }
-                ]
-            },
-            {
-                title: 'Статьи',
-                iconCls: 'compose',
-                id: 'categoriesx',
-                layout: 'fit',
-                xtype: 'panel',
-
-                listeners: {
-                    activate: function() {
-                        if (window.location.hash && window.location.hash.split('/')[0] !== "#" + this.id) {
-                            Tusa.app.redirectTo(this.id);
-                        }
-                    }
-                },
+                }
             },
             {
                 title: 'О нас',

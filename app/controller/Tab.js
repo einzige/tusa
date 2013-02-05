@@ -8,7 +8,8 @@ Ext.define("Tusa.controller.Tab", {
         },
 
         contentContainer: undefined,
-        contentClass: undefined,
+        contentClass:     undefined,
+        containerId:      undefined,
 
         refs: {
             tabs: '#Tabs',
@@ -21,13 +22,17 @@ Ext.define("Tusa.controller.Tab", {
     },
 
     initContainer: function(action) {
-        console.log(this.getTab().id + ' loaded');
+        console.log([this.self.getName(), action.getAction()].join('#'));
 
-        if( ! this.getContentContainer()) {
-            var contentContainer = Ext.create(this.getContentClass());
+        if(this.getContentClass()) {
+            var container = Ext.DomQuery.selectNode('#' + this.getContainerId());
 
-            this.setContentContainer(contentContainer);
-            this.getTab().add(contentContainer);
+            if(! container && ! this.getContentContainer()) {
+                var contentContainer = Ext.create(this.getContentClass(), {id: this.getContainerId()});
+
+                this.setContentContainer(contentContainer);
+                this.getTab().add(contentContainer);
+            }
         }
 
         action.resume();

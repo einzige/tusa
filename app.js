@@ -13,9 +13,9 @@ Ext.application({
     ],
 
     models: ['Ad', 'Category'],
-    views: ['Main', 'CategoriesList', 'categories.TitleBar', 'Categories'],
+    views: ['Main', 'CategoriesList', 'Categories'],
     stores: ['Ads', 'Categories'],
-    controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home'],
+    controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home', 'List'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -38,6 +38,8 @@ Ext.application({
     config: {
         tabActivated: false
     },
+
+    sourceHost: 'http://192.168.1.112:3000',
 
     launch: function() {
         // Destroy the #appLoadingIndicator element

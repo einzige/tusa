@@ -757,7 +757,8 @@ Ext.define('Ext.dataview.NestedList', {
         //show/hide the backButton, and update the backButton text, if one exists
         if (backButton) {
             backButton[parentNode ? 'show' : 'hide']();
-            if (parentNode && me.getUseTitleAsBackText()) {
+            // NOTE: changed
+            if (parentNode && me.getUseTitleAsBackText() && node.parentNode) {
                 backButton.setText(me.renderTitleText(node.parentNode, true));
             }
         }

@@ -5,7 +5,7 @@ Ext.define('Tusa.store.Ads', {
 
     config: {
         model: 'Tusa.model.Ad',
-        autoLoad: true,
+        autoLoad: false,
 
         grouper: {
             groupFn: function(record) {
@@ -15,7 +15,7 @@ Ext.define('Tusa.store.Ads', {
 
         proxy: {
             type: 'jsonp',
-            url: 'http://192.168.1.111:3000/ads',
+            url: Tusa.app.sourceHost,
 
             reader: {
                 type: 'json',
@@ -24,5 +24,10 @@ Ext.define('Tusa.store.Ads', {
                 successProperty: 'success'
             }
         }
+    },
+
+    loadCategory: function(categoryId) {
+        this.getProxy().setUrl([Tusa.app.sourceHost, 'categories', categoryId, 'ads'].join('/'));
+        this.load();
     }
 });
