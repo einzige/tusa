@@ -69,6 +69,28 @@ Ext.define('Tusa.view.Main', {
                 }
             },
             {
+                title: 'Favorites',
+                iconCls: 'star',
+                scrollable: true,
+                id: 'favorites',
+
+                listeners: {
+                    activate: function() {
+                        if (window.location.hash !== "#" + this.id) {
+                            Tusa.app.redirectTo(this.id);
+                        }
+                    }
+                },
+
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'Favorites'
+                    }
+                ]
+            },
+            {
                 title: 'О нас',
                 iconCls: 'info',
                 scrollable: true,

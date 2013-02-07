@@ -58,6 +58,9 @@ Ext.define('Tusa.view.CategoriesList', {
     goToCategoryNode: function(currentNode) {
         //this.getLayout().setAnimation('fade');
         this.goToNode(currentNode);
+        //this.renderTitleText('xxxx');
+        this.setTitle(currentNode.data.name);
+        //this.getBackButton().setText('xxxx');
         //this.fireEvent('listchange', this, this.getLastActiveList());
         //this.setLastNode(currentNode);
         //this.syncToolbar();
@@ -158,15 +161,15 @@ Ext.define('Tusa.view.CategoriesList', {
         me.setLastNode(node);
 
         me.syncToolbar();
-    },
+    }
 
     /**
      * @private
      */
-    renderTitleText: function (node, forBackButton) {
+    /*renderTitleText: function (node, forBackButton) {
         if (!node) {
             return 'error';
         }
         this.callParent([node, forBackButton]);
-    }
+    }//*/
 });

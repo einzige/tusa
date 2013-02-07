@@ -1,11 +1,13 @@
-Ext.define('Tusa.controller.Ads', {
+Ext.define('Tusa.controller.Favorites', {
     extend:   'Tusa.controller.List',
     requires: ['Tusa.view.AdsList'],
 
     config: {
+        contentClass: 'Tusa.view.Categories',
+        containerId:  'Categories',
+
         routes: {
-            'categories/:category_id/ads': 'index',
-            'favorites': 'favorites'
+            'favorites': 'index'
         },
 
         refs: {
