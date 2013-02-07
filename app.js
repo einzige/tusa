@@ -14,7 +14,7 @@ Ext.application({
 
     models: ['Ad', 'Category'],
     views: ['Main', 'CategoriesList', 'Categories'],
-    stores: ['Ads', 'Categories'],
+    stores: ['Ads', 'Categories', 'Favorites'],
     controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home', 'List'],
 
     icon: {
