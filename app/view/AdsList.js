@@ -10,7 +10,19 @@ Ext.define('Tusa.view.AdsList', {
         onItemDisclosure: {
             scope: 'addToFavorites',
             handler: function(record, element) {
-                Tusa.app.favorites.add(record);
+                element.toggleCls('favorite');
+
+                console.log(record.data.id);
+                if (Tusa.app.favorites.findRecord('id', record.data.id)) {
+                    Tusa.app.favorites.remove(record);
+                    console.log('xxxx');
+                    element.removeCls('favorite');
+                } else {
+                    Tusa.app.favorites.add(record);
+                    console.log('yyy');
+
+                    element.addCls('favorite');
+                }
             }
         },
 

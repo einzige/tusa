@@ -18,6 +18,11 @@
 @include sencha-form;
 @include sencha-msgbox;
 
+
+.favorite .x-list-disclosure {
+  opacity: 0.5 !important;
+}
+
 // Your custom code goes here...
 
 /* Text items */
