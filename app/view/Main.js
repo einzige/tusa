@@ -14,6 +14,8 @@ Ext.define('Tusa.view.Main', {
         this.callParent(arguments);
         if (window.location.hash) {
             this.setActiveItem(window.location.hash.split('/')[0]);
+        } else {
+            window.location.hash = '#home';
         }
     },
 
