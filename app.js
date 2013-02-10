@@ -49,6 +49,24 @@ Ext.application({
         Ext.Viewport.add(Ext.create('Tusa.view.Main'));
 
         Tusa.app.favorites = Ext.create('Tusa.store.Favorites');
+        Tusa.app.tabsHistory = {};
+    },
+
+    restoreTabHistory: function(tabId) {
+        var history = Tusa.app.tabsHistory;
+        Tusa.app.redirectTo(history[tabId] ? history[tabId] : tabId);
+    },
+
+    saveTabHistory: function(tabId) {
+        var history = Tusa.app.tabsHistory;
+
+        var actions = Tusa.app.getHistory().getActions();
+        var lastAction = actions[actions.length - 2];
+
+        // Remember history for the stale tab
+        if (lastAction) {
+            history[tabId] = lastAction.getUrl();
+        }
     },
 
     onUpdated: function() {

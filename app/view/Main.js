@@ -22,6 +22,13 @@ Ext.define('Tusa.view.Main', {
 
     config: {
         tabBarPosition: 'bottom',
+        tabsHistory: {},
+
+        listeners: {
+            activeitemchange: function(me, value, oldValue) {
+                Tusa.app.saveTabHistory(oldValue.getId());
+            }
+        },
 
         items: [
             {
@@ -66,7 +73,7 @@ Ext.define('Tusa.view.Main', {
                 listeners: {
                     activate: function() {
                         if (window.location.hash && window.location.hash.split('/')[0] !== "#" + this.id) {
-                            Tusa.app.redirectTo(this.id);
+                            Tusa.app.restoreTabHistory(this.id);
                         }
                     }
                 }
