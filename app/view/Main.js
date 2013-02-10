@@ -12,6 +12,7 @@ Ext.define('Tusa.view.Main', {
 
     initialize: function() {
         this.callParent(arguments);
+
         if (window.location.hash) {
             this.setActiveItem(window.location.hash.split('/')[0]);
         } else {
@@ -75,6 +76,8 @@ Ext.define('Tusa.view.Main', {
                 iconCls: 'star',
                 scrollable: true,
                 id: 'favorites',
+                badgeText: 'Пусто',
+                layout: 'fit',
 
                 listeners: {
                     activate: function() {

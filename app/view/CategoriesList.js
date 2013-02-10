@@ -8,7 +8,7 @@ Ext.define('Tusa.view.CategoriesList', {
         displayField: 'name',
         title:        'Категории объявлений',
 
-        detailCard:   { xtype: 'adslist' },
+        detailCard:   { xtype: 'adslist', id: 'adsList' },
 
         toolbar: {
             cls:    'small-text',

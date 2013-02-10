@@ -13,9 +13,9 @@ Ext.application({
     ],
 
     models: ['Ad', 'Category'],
-    views: ['Main', 'CategoriesList', 'Categories'],
+    views: ['Main', 'CategoriesList', 'Categories', 'AdsList', 'FavoritesList'],
     stores: ['Ads', 'Categories', 'Favorites'],
-    controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home', 'List'],
+    controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home', 'List', 'Favorites'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -47,6 +47,8 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('Tusa.view.Main'));
+
+        Tusa.app.favorites = Ext.create('Tusa.store.Favorites');
     },
 
     onUpdated: function() {

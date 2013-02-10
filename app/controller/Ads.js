@@ -5,10 +5,20 @@ Ext.define('Tusa.controller.Ads', {
     config: {
         routes: {
             'categories/:category_id/ads': 'index',
-            'favorites': 'favorites'
+        },
+
+        control: {
+            adsList: {
+                itemdoubletap: function(me, index, target, record) {
+                    Tusa.app.favorites.add(record);
+                    this.getFavoritesTab().tab.setBadgeText(Tusa.app.favorites.getCount());
+                }
+            }
         },
 
         refs: {
+            favoritesTab: '#favorites',
+            adsList: '#adsList',
             favoritesList: {
                 xtype: 'adslist',
                 store: 'Favorites'

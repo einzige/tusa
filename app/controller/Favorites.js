@@ -1,24 +1,22 @@
 Ext.define('Tusa.controller.Favorites', {
-    extend:   'Tusa.controller.List',
-    requires: ['Tusa.view.AdsList'],
+    extend:   'Tusa.controller.Tab',
+    requires: ['Tusa.view.FavoritesList'],
 
     config: {
-        contentClass: 'Tusa.view.Categories',
-        containerId:  'Categories',
+        contentClass: 'Tusa.view.FavoritesList',
+        containerId:  'favoritesList',
 
         routes: {
             'favorites': 'index'
         },
 
         refs: {
-            favoritesList: {
-                xtype: 'adslist',
-                store: 'Favorites'
-            }
+            favoritesList: '#favoritesList',
+            tab: '#favorites'
         }
     },
 
     // Loads ads by given categoryId
-    index: function (categoryId) {
+    index: function () {
     }
 });
