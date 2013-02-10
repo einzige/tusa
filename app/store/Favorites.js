@@ -5,10 +5,12 @@ Ext.define('Tusa.store.Favorites', {
         model: 'Tusa.model.Ad',
 
         listeners: {
-            addrecords: function(store, records) {
+            addrecords: function(store) {
+                Ext.getCmp('favorites').tab.setBadgeText(store.getCount());
             },
 
-            removerecords: function(store, records) {
+            removerecords: function(store) {
+                Ext.getCmp('favorites').tab.setBadgeText(store.getCount());
             }
         }
     }

@@ -9,10 +9,10 @@ Ext.define('Tusa.controller.Ads', {
 
         control: {
             adsList: {
-                itemdoubletap: function(me, index, target, record) {
+                /*itemdoubletap: function(me, index, target, record) {
                     Tusa.app.favorites.add(record);
                     this.getFavoritesTab().tab.setBadgeText(Tusa.app.favorites.getCount());
-                }
+                }*/
             }
         },
 

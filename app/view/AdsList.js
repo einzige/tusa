@@ -7,6 +7,12 @@ Ext.define('Tusa.view.AdsList', {
     config: {
         store: 'Ads',
         id: 'AdsList',
+        onItemDisclosure: {
+            scope: 'addToFavorites',
+            handler: function(record, element) {
+                Tusa.app.favorites.add(record);
+            }
+        },
 
         plugins: [{
                       xclass: 'Ext.plugin.ListPaging',
