@@ -81,7 +81,6 @@ Ext.define('Tusa.view.Main', {
             {
                 title: 'Favorites',
                 iconCls: 'star',
-                scrollable: true,
                 id: 'favorites',
                 badgeText: 'Пусто',
                 layout: 'fit',
@@ -92,15 +91,7 @@ Ext.define('Tusa.view.Main', {
                             Tusa.app.redirectTo(this.id);
                         }
                     }
-                },
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Favorites'
-                    }
-                ]
+                }
             },
             {
                 title: 'О нас',
