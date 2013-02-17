@@ -7,20 +7,18 @@ Ext.define('Tusa.view.AdsList', {
     config: {
         store: 'Ads',
         id: 'AdsList',
+        disableSelection: true,
+
         onItemDisclosure: {
             scope: 'addToFavorites',
             handler: function(record, element) {
                 element.toggleCls('favorite');
 
-                console.log(record.data.id);
                 if (Tusa.app.favorites.findRecord('id', record.data.id)) {
                     Tusa.app.favorites.remove(record);
-                    console.log('xxxx');
                     element.removeCls('favorite');
                 } else {
                     Tusa.app.favorites.add(record);
-                    console.log('yyy');
-
                     element.addCls('favorite');
                 }
             }
@@ -42,8 +40,12 @@ Ext.define('Tusa.view.AdsList', {
                   '</tpl>',
                     "<div>{text}<div>", "<b>{tel}</b>", "&nbsp;<small>{date}</small>",
                   "</div>",
+                  '<tpl if="this.favorite(id)">',
+                  "<div style='float:fight'>STAR</div>",
+                  '</tpl>',
                   {
-                      special: function(ordering) { return ordering == '1'; }
+                      special: function(ordering) { return ordering == '1'; },
+                      favorite: function(id) { return !!Tusa.app.favorites.findRecord('id', id); }
                   })
     }
 });

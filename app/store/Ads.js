@@ -7,12 +7,6 @@ Ext.define('Tusa.store.Ads', {
         model: 'Tusa.model.Ad',
         autoLoad: false,
 
-        grouper: {
-            groupFn: function(record) {
-                return record.get('tel')[0];
-            }
-        },
-
         proxy: {
             type: 'jsonp',
             url: Tusa.app.sourceHost,

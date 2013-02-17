@@ -7,10 +7,12 @@ Ext.define('Tusa.store.Favorites', {
         listeners: {
             addrecords: function(store) {
                 Ext.getCmp('favorites').tab.setBadgeText(store.getCount());
+                Ext.getCmp('favoritesButton').setBadgeText(store.getCount());
             },
 
             removerecords: function(store) {
-                Ext.getCmp('favorites').tab.setBadgeText(store.getCount());
+                Ext.getCmp('favoritesButton').setBadgeText(store.getCount());
+                Ext.getCmp('favoritesButton').setBadgeText(store.getCount());
             }
         }
     }

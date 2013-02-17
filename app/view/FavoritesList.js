@@ -4,6 +4,7 @@ Ext.define("Tusa.view.FavoritesList", {
 
     config: {
         favorites: undefined,
+        disableSelection: true,
         id: 'FavoritesList',
 
         itemTpl: new Ext.XTemplate(

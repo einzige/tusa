@@ -7,6 +7,7 @@ Ext.define('Tusa.view.CategoriesList', {
         store:        'Categories',
         displayField: 'name',
         title:        'Категории объявлений',
+        disableSelection: true,
 
         detailCard:   { xtype: 'adslist', id: 'adsList' },
 
@@ -23,9 +24,17 @@ Ext.define('Tusa.view.CategoriesList', {
             },
             items: [
                 {
-                    iconCls:  'home',
+                    iconCls:  'star',
+                    badgeText: '0',
                     align:    'right',
-                    iconMask: true
+                    iconMask: true,
+                    id: 'favoritesButton',
+
+                    listeners: {
+                        tap: function() {
+                            Tusa.app.redirectTo('favorites');
+                        }
+                    }
                 }
             ]
         },
