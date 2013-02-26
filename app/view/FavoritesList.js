@@ -1,11 +1,20 @@
 Ext.define("Tusa.view.FavoritesList", {
     extend: 'Ext.dataview.List',
+    requires: ['Ext.field.Search'],
     xtype: 'favoriteslist',
 
     config: {
         favorites: undefined,
         disableSelection: true,
         id: 'FavoritesList',
+
+        onItemDisclosure: {
+            handler: function(record) {
+                Tusa.app.favorites.remove(record);
+                Ext.getCmp('favorites').tab.setBadgeText(this.getStore().getCount());
+                Ext.getCmp('favoritesButton').setBadgeText(this.getStore().getCount());
+            }
+        },
 
         itemTpl: new Ext.XTemplate(
             '<tpl if="this.special(ordering)">',

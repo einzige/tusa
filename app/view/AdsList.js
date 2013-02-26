@@ -9,18 +9,25 @@ Ext.define('Tusa.view.AdsList', {
         id: 'AdsList',
         disableSelection: true,
 
-        onItemDisclosure: {
-            scope: 'addToFavorites',
-            handler: function(record, element) {
-                element.toggleCls('favorite');
+        /*onItemDisclosure: {
+            handler: function() {
+            }
+        },*/
+
+        listeners: {
+            itemtap: function(me, not_me, element, record) {
+                var cnt = Tusa.app.favorites.getCount();
 
                 if (Tusa.app.favorites.findRecord('id', record.data.id)) {
                     Tusa.app.favorites.remove(record);
-                    element.removeCls('favorite');
+                    //element.removeCls('favorite');
                 } else {
                     Tusa.app.favorites.add(record);
-                    element.addCls('favorite');
+                    //element.addCls('favorite');
                 }
+                Ext.getCmp('favorites').tab.setBadgeText(cnt);
+                Ext.getCmp('favoritesButton').setBadgeText(cnt);
+                me.refresh();
             }
         },
 
@@ -33,16 +40,17 @@ Ext.define('Tusa.view.AdsList', {
                       pullRefreshText: 'Обновить список объявлений!'
                   }],
         itemTpl: new Ext.XTemplate(
-                  '<tpl if="this.special(ordering)">',
+                  '<tpl if="this.special(ordering) && !this.favorite(id)">',
                   "<div class='Ad ad special'>",
+                  '<tpl elseif="!this.special(ordering) && this.favorite(id)">',
+                  "<div class='Ad ad favorite'>",
+                  '<tpl elseif="this.special(ordering) && this.favorite(id)">',
+                  "<div class='Ad ad special favorite'>",
                   '<tpl else>',
                   '<div class="Ad ad">',
                   '</tpl>',
-                    "<div>{text}<div>", "<b>{tel}</b>", "&nbsp;<small>{date}</small>",
+                    "<div>{text}</div>", "<b>{tel}</b>", "&nbsp;<small>{date}</small>",
                   "</div>",
-                  '<tpl if="this.favorite(id)">',
-                  "<div style='float:fight'>STAR</div>",
-                  '</tpl>',
                   {
                       special: function(ordering) { return ordering == '1'; },
                       favorite: function(id) { return !!Tusa.app.favorites.findRecord('id', id); }

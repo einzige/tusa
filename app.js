@@ -13,7 +13,7 @@ Ext.application({
     ],
 
     models: ['Ad', 'Category'],
-    views: ['Main', 'CategoriesList', 'Categories', 'AdsList', 'Favorites', 'FavoritesList'],
+    views: ['Main', 'CategoriesList', 'Categories', 'AdsList', 'FavoritesList'],
     stores: ['Ads', 'Categories', 'Favorites'],
     controllers: ['Tab', 'About', 'Ads', 'Categories', 'Home', 'List', 'Favorites'],
 
